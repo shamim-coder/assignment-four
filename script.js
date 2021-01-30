@@ -29,7 +29,7 @@ function grandTotalCalculation() {
 function seatCountHandler(id, isIncrement) {
     const getSeatNumber = document.getElementById(id + '-seat-numbers')
     let seatNumbers = parseFloat(getSeatNumber.value)
-    
+
     if (isIncrement == true) {
         seatNumbers++
     }
@@ -41,13 +41,13 @@ function seatCountHandler(id, isIncrement) {
     document.getElementById(id + '-seat-numbers').value = seatNumbers
     // Set subtotal
     const subTotal = subTotalCalculation()
-    document.getElementById('sub-total').innerText = subTotal;
+    document.getElementById('sub-total').innerText = subTotal + '.00';
     // set tax
     const tax = taxCalculation()
-    document.getElementById('tax').innerText = tax;
+    document.getElementById('tax').innerText = tax + '.00';
     // set grand total
     const grandTotal = grandTotalCalculation()
-    document.getElementById('grand-total').innerText = grandTotal;
+    document.getElementById('grand-total').innerText = grandTotal + '.00';
 }
 
 // First Class Increment Handler
@@ -69,60 +69,40 @@ document.getElementById('economy-decrement-handler').addEventListener('click', f
 
 
 // get flight passenger data
-function getPassengerValue(getId, initialId){
+function getPassengerValue(getId, initialId) {
     document.getElementById(initialId).innerText = document.getElementById(getId).value;
 }
 // get total values
-function getTotalValue(getId, initialId){
-    document.getElementById(initialId).innerText = document.getElementById(getId).innerText
+function getTotalValue(getId, initialId) {
+    document.getElementById(initialId).innerText = '$' + document.getElementById(getId).innerText
 }
 
 // Set Booking Information to Popup Section
 function bookingInfoPopup() {
-    
-    getPassengerValue('flying-from', 'flyingFrom')
-    getPassengerValue('flying-to', 'flyingTo')
-    getPassengerValue('departure', 'departure-date')
-    getPassengerValue('return', 'return-date')
-    getPassengerValue('first-seat-numbers', 'firstClassNum')
-    getPassengerValue('economy-seat-numbers', 'economyNum')
+
+    getPassengerValue('flying-from', 'flyingFrom')                  // Flying From Location
+    getPassengerValue('flying-to', 'flyingTo')                      // Flying to Location
+    getPassengerValue('departure', 'departure-date')                // Departure Date
+    getPassengerValue('return', 'return-date')                      // Return Date
+    getPassengerValue('first-seat-numbers', 'firstClassNum')        // Number of Seats (First Class)
+    getPassengerValue('economy-seat-numbers', 'economyNum')         // Number of Seats (Economy)
+    // set subtotal and grand total value
     getTotalValue('sub-total', 'subTotal')
     getTotalValue('grand-total', 'total')
-
-
-    // const flyingFrom = document.getElementById('flying-from').value
-    // document.getElementById('flyingFrom').innerText = flyingFrom;
-
-    // const flyingTo = document.getElementById('flying-to').value
-    // document.getElementById('flyingTo').innerText = flyingTo;
-
-    // const departure = document.getElementById('departure').value
-    // document.getElementById('departure-date').innerText = departure;
-
-    // const returnDate = document.getElementById('return').value
-    // document.getElementById('return-date').innerText = returnDate;
-
-    // const firstClassNum = document.getElementById('first-seat-numbers').value
-    // document.getElementById('firstClassNum').innerText = firstClassNum;
-
-    // const economyNum = document.getElementById('economy-seat-numbers').value
-    // document.getElementById('economyNum').innerText = economyNum;
-
-    // const subTotal = document.getElementById('sub-total').innerText
-    // document.getElementById('subTotal').innerText = subTotal;
-
-    // const total = document.getElementById('grand-total').innerText
-    // document.getElementById('total').innerText = total;
 }
 
+
 // Popup Click Event ( if click "Book Now" button showing popup with booking information )
-document.getElementById('bookNow-btn').addEventListener('click', function(){
+document.getElementById('bookNow-btn').addEventListener('click', function () {
+
     document.querySelector('.book-now').classList.add('popupEffect')
     bookingInfoPopup()
 
 })
 
 // if click "X" button popup will close
-document.getElementById('close-popup').addEventListener('click', function(){
+document.getElementById('close-popup').addEventListener('click', function () {
+    
     document.querySelector('.book-now').classList.remove('popupEffect')
+
 })
