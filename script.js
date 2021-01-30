@@ -112,7 +112,7 @@ document.getElementById('bookNow-btn').addEventListener('click', function () {
     
 })
 
-// if click "X" button popup will close
+// if click Submit button popup will closed
 document.getElementById('close-popup').addEventListener('click', function () {
     
     document.querySelector('.book-now').classList.remove('popupEffect')
