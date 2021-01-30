@@ -27,29 +27,30 @@
 
     <!--Booking Section-->
     <main class="main-content container">
+
         <div class="booking-form">
             <h3>Booking Flights</h3>
             <div class="input-group">
-                <label for="flying-from">Flying From</label>
+                <label for="flying-from">Flying From <span class="required">*</span></label>
                 <input id="flying-from" class="inp-style" type="text" placeholder="Dhaka, Bangladesh">
             </div>
             <div class="input-group">
-                <label for="flying-to">Flying To</label>
+                <label for="flying-to">Flying To <span class="required">*</span></label>
                 <input id="flying-to" class="inp-style" type="text" placeholder="New York, United States">
             </div>
             <div class="inputs">
                 <div class="input-group">
-                    <label for="departure">Departure</label>
-                        <input id="departure" class="inp-style" type="date">
+                    <label for="departure">Departure <span class="required">*</span></label>
+                    <input id="departure" class="inp-style" type="date">
                 </div>
                 <div class="input-group">
-                    <label for="return">Return</label>
+                    <label for="return">Return <span class="required">*</span></label>
                     <input id="return" class="inp-style" type="date">
                 </div>
             </div>
             <div class="input-group f-class">
                 <div>
-                    <label for="first-seat-numbers">First Class ($150)</label>
+                    <label for="first-seat-numbers">First Class ($150) <span class="required">*</span></label>
                     <input id="first-seat-numbers" class="inp-style inp-width" value="0" type="number">
                 </div>
                 <div class="plus-minus-btn">
@@ -60,7 +61,7 @@
 
             <div class="f-class">
                 <div>
-                    <label for="economy-seat-numbers">Economy ($100)</label>
+                    <label for="economy-seat-numbers">Economy ($100) <span class="required">*</span></label>
                     <input id="economy-seat-numbers" class="inp-style inp-width" value="0" type="number">
                 </div>
                 <div class="plus-minus-btn">
@@ -97,30 +98,25 @@
                 </div>
             </div>
             <button id="bookNow-btn" class="btn-style">Book Now</button>
+            <small id="required-text" style="color: red;">* Please Fill all the fields</small>
         </div>
 
         <div class="booking-content">
             <h1>discover <br> around the world</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise voluptatibus quam</p>
         </div>
-        </section>
-
-
-        
-
 
         <!--Thank You-->
     </main>
 
     <section class="book-now">
         <div class="book-now-popup">
-            <img id="close-popup" src="images/download.svg" alt="">
-           <div class="top-title">
-               <h2>Please Confirm Your Booking</h2>
-           </div>
+            <div class="top-title">
+                <h2>Please Confirm Your Booking</h2>
+            </div>
 
             <table>
-                
+
                 <tbody id="book-info">
                     <tr>
                         <td>Flying From</td>
@@ -155,17 +151,22 @@
                     <tr>
                         <td>Subtotal</td>
                         <td>:</td>
-                        <td id="subTotal">$0.00</td>
+                        <td id="subTotal">$0</td>
+                    </tr>
+                    <tr>
+                        <td>Charge 10% VAT</td>
+                        <td>:</td>
+                        <td id="totalTax">$0</td>
                     </tr>
                     <tr>
                         <td>Total</td>
                         <td>:</td>
-                        <td id="total">$0.00</td>
+                        <td id="total">$0</td>
                     </tr>
                 </tbody>
             </table>
 
-            <button class="btn-style">Confirm</button>
+            <button id="close-popup" class=" btn-style">Confirm</button>
         </div>
     </section>
 

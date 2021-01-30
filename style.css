@@ -129,8 +129,6 @@ nav ul li a:hover, a.active{
     display: flex;
     justify-content: space-between;
 }
-
-
 input[type="button"] {
     width: 40px;
     background-color: #3352F2;
@@ -151,7 +149,6 @@ input[type="button"] {
     transition: .3s;
     opacity: 0;
 }
-
 .popupEffect {
     opacity: 1;
     top: 50%;
@@ -163,16 +160,15 @@ input[type="button"] {
 .book-now-popup {
     position: relative;
 }
-#close-popup {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 25px;
-    cursor: pointer;
-}
 .book-now-popup tr td {
     padding-right: 30px;
 }
 .book-now-popup tbody tr {
     line-height: 2rem;
+}
+#required-text {
+    display: none;
+}
+.required {
+    color: red;
 }

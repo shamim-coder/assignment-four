@@ -41,13 +41,13 @@ function seatCountHandler(id, isIncrement) {
     document.getElementById(id + '-seat-numbers').value = seatNumbers
     // Set subtotal
     const subTotal = subTotalCalculation()
-    document.getElementById('sub-total').innerText = subTotal + '.00';
+    document.getElementById('sub-total').innerText = subTotal;
     // set tax
     const tax = taxCalculation()
-    document.getElementById('tax').innerText = tax + '.00';
+    document.getElementById('tax').innerText = tax;
     // set grand total
     const grandTotal = grandTotalCalculation()
-    document.getElementById('grand-total').innerText = grandTotal + '.00';
+    document.getElementById('grand-total').innerText = grandTotal;
 }
 
 // First Class Increment Handler
@@ -88,6 +88,7 @@ function bookingInfoPopup() {
     getPassengerValue('economy-seat-numbers', 'economyNum')         // Number of Seats (Economy)
     // set subtotal and grand total value
     getTotalValue('sub-total', 'subTotal')
+    getTotalValue('tax', 'totalTax')
     getTotalValue('grand-total', 'total')
 }
 
@@ -95,9 +96,20 @@ function bookingInfoPopup() {
 // Popup Click Event ( if click "Book Now" button showing popup with booking information )
 document.getElementById('bookNow-btn').addEventListener('click', function () {
 
-    document.querySelector('.book-now').classList.add('popupEffect')
-    bookingInfoPopup()
+    const flyingFrom = document.getElementById('flying-from')
+    const flyingTo = document.getElementById('flying-to')
+    const departure = document.getElementById('departure')
+    const returnDate = document.getElementById('return')
+    const firstSeatNumbers = document.getElementById('first-seat-numbers')
+    const economySeatNumbers = document.getElementById('economy-seat-numbers')
 
+    if(flyingFrom.value == "" || flyingTo.value == "" || departure.value == "" || returnDate.value == "" || firstSeatNumbers.value == 0 || economySeatNumbers.value == 0 ) {
+        document.getElementById('required-text').style.display="block"
+    } else {
+        document.querySelector('.book-now').classList.add('popupEffect')
+        bookingInfoPopup()
+    }
+    
 })
 
 // if click "X" button popup will close
